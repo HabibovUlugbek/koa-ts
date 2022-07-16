@@ -2,6 +2,7 @@ import Koa from "koa";
 import bodyParser from "koa-bodyparser";
 import cors from "koa2-cors";
 import logger from "koa-logger";
+import codereviewRoutes from "./routes/codereviewvideos";
 import healthcheckRoutes from "./routes/healthcheck";
 import { config } from "./config";
 
@@ -18,6 +19,7 @@ app.use(
 app.use(logger());
 
 app.use(healthcheckRoutes.routes());
+app.use(codereviewRoutes.routes());
 
 const server = app
 	.listen(PORT, async () => {
